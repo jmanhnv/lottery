@@ -49,7 +49,7 @@ public class AppMain {
 		toHop = new ToHop(55, 6);
 		toHop.backtrack(1);
 		System.out.println(
-				MessageFormat.format("6/55 game. The probability of this happening is 1 in {0}", toHop.getCount()));// 45,057,474
+				MessageFormat.format("6/55 game. The probability of this happening is 1 in {0}", toHop.getCount()));// 28,989,675
 	}
 
 }
