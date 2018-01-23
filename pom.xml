@@ -1,27 +1,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.lottery</groupId>
 	<artifactId>lottery</artifactId>
 	<version>0.1</version>
 	<packaging>jar</packaging>
-
 	<name>lottery</name>
 	<url>http://maven.apache.org</url>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- Java 9 -->
 		<maven.compiler.target>1.9</maven.compiler.target>
 		<maven.compiler.source>1.9</maven.compiler.source>
+		<!-- Apache Maven Compiler Plugin -->
 		<maven.compiler.plugin>3.7.0</maven.compiler.plugin>
+		<!-- Apache Maven Dependency Plugin -->
+		<maven.dependency.plugin>3.0.2</maven.dependency.plugin>
+		<!-- Apache Maven JAR Plugin -->
+		<maven.jar.plugin>3.0.2</maven.jar.plugin>
 		<!-- JDK 9 -->
 		<jdk9.version>1.9</jdk9.version>
 		<guava.version>23.0</guava.version>
 		<junit.version>4.12</junit.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>com.google.guava</groupId>
@@ -55,7 +56,6 @@
 			<version>1.9.3</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<finalName>java-tricks</finalName>
 		<plugins>
@@ -93,11 +93,11 @@
 					<target>${maven.compiler.target}</target>
 				</configuration>
 			</plugin>
-
 			<!-- Make this jar executable -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven.jar.plugin}</version>
 				<configuration>
 					<!-- DO NOT include log4j.properties file in your Jar -->
 					<!-- <excludes> <exclude>**/log4j.properties</exclude> </excludes> -->
@@ -111,12 +111,11 @@
 					</archive>
 				</configuration>
 			</plugin>
-
 			<!-- Copy project dependency -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.5.2</version>
+				<version>${maven.dependency.plugin}</version>
 				<executions>
 					<execution>
 						<id>copy-dependencies</id>
@@ -132,7 +131,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
 </project>
